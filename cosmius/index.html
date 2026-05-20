@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cosmius is an arcade space shooter for iPhone and iPad with quests, ship upgrades, bosses, and fast space runs.">
+  <meta property="og:title" content="Cosmius">
+  <meta property="og:description" content="An arcade space shooter with quests, upgrades, bosses, and fast space runs.">
+  <meta property="og:image" content="https://just-us.xyz/assets/cosmius/gameplay.jpg">
+  <link rel="canonical" href="https://just-us.xyz/cosmius/">
+  <title>Cosmius - Arcade Space Shooter</title>
+  <style>
+    :root {
+      --bg: #080217;
+      --panel: rgba(0, 80, 75, 0.9);
+      --panel-dark: rgba(2, 21, 31, 0.82);
+      --text: #f1fcff;
+      --muted: #a9c7d1;
+      --accent: #30d8cf;
+      --accent-2: #8d58ff;
+      --gold: #f2e889;
+      --border: rgba(67, 229, 221, 0.35);
+      --shadow: rgba(0, 0, 0, 0.38);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 16% 10%, rgba(120, 49, 188, 0.45), transparent 24%),
+        radial-gradient(circle at 86% 14%, rgba(36, 192, 199, 0.22), transparent 20%),
+        radial-gradient(circle at 62% 80%, rgba(100, 43, 146, 0.3), transparent 26%),
+        linear-gradient(180deg, #15042d 0%, var(--bg) 60%, #04010b 100%);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.38) 0 1px, transparent 1px),
+        radial-gradient(circle, rgba(60, 231, 218, 0.22) 0 1px, transparent 1px);
+      background-size: 120px 120px, 190px 190px;
+      background-position: 14px 20px, 80px 70px;
+      pointer-events: none;
+      opacity: 0.36;
+    }
+
+    a { color: inherit; }
+
+    .page {
+      position: relative;
+      width: min(100% - 36px, 1120px);
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 28px 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text);
+      font-weight: 900;
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      box-shadow: 0 0 26px rgba(141, 88, 255, 0.42);
+      transform: rotate(45deg);
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    nav a {
+      text-decoration: none;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(300px, 1.1fr);
+      gap: 42px;
+      align-items: center;
+      min-height: calc(100vh - 98px);
+      padding: 16px 0 56px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--gold);
+      background: rgba(0, 0, 0, 0.22);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      transform: rotate(45deg);
+    }
+
+    h1 {
+      margin: 18px 0 12px;
+      font-size: clamp(56px, 11vw, 118px);
+      line-height: 0.9;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 540px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(18px, 2.2vw, 22px);
+      line-height: 1.48;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 20px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 900;
+      background: var(--panel);
+      box-shadow: 0 12px 26px var(--shadow);
+    }
+
+    .button.secondary {
+      color: var(--text);
+      background: var(--panel-dark);
+    }
+
+    .shots {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      align-items: end;
+    }
+
+    .phone {
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.04);
+      box-shadow: 0 24px 60px var(--shadow);
+    }
+
+    .phone.primary {
+      grid-column: span 2;
+      transform: translateY(-18px);
+    }
+
+    .phone img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .section {
+      padding: 64px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    h2 {
+      margin: 0 0 22px;
+      font-size: clamp(30px, 5vw, 52px);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .feature {
+      min-height: 188px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(0, 88, 82, 0.82), rgba(2, 21, 31, 0.78));
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+    }
+
+    .feature-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 12px;
+      color: var(--gold);
+      background: rgba(0, 0, 0, 0.24);
+      font-weight: 900;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+
+    .feature p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 24px 0 34px;
+      color: var(--muted);
+      font-size: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    footer a {
+      color: var(--accent);
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: 0;
+        padding-top: 22px;
+      }
+
+      .shots {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .phone.primary {
+        transform: none;
+      }
+
+      .features {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page { width: min(100% - 24px, 1120px); }
+      header { align-items: flex-start; }
+      nav { gap: 12px; font-size: 13px; }
+      .hero { gap: 30px; }
+      .actions { display: grid; }
+      .button { width: 100%; }
+      .features { grid-template-columns: 1fr; }
+      footer { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <a class="brand" href="/cosmius/" aria-label="Cosmius home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Cosmius</span>
+      </a>
+      <nav aria-label="Cosmius links">
+        <a href="#features">Features</a>
+        <a href="/support-cosmius/">Support</a>
+        <a href="/privacy-cosmius/">Privacy</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <span class="eyebrow">Arcade space shooter</span>
+          <h1 id="hero-title">Cosmius</h1>
+          <p class="lead">
+            Fly through strange space episodes, complete quests, upgrade your ship, and survive boss waves built for short, fast runs.
+          </p>
+          <div class="actions">
+            <a class="button" href="/support-cosmius/">Support</a>
+            <a class="button secondary" href="/privacy-cosmius/">Privacy Policy</a>
+          </div>
+        </div>
+
+        <div class="shots" aria-label="Cosmius screenshots">
+          <figure class="phone primary">
+            <img src="/assets/cosmius/gameplay.jpg" alt="Cosmius gameplay with meteors, quests, and player ship">
+          </figure>
+          <figure class="phone">
+            <img src="/assets/cosmius/menu.jpg" alt="Cosmius main menu with episode selection">
+          </figure>
+          <figure class="phone">
+            <img src="/assets/cosmius/shop.jpg" alt="Cosmius shop with gun, power, and shield upgrades">
+          </figure>
+          <figure class="phone">
+            <img src="/assets/cosmius/settings.jpg" alt="Cosmius settings with language and reset progress controls">
+          </figure>
+        </div>
+      </section>
+
+      <section class="section" id="features" aria-labelledby="features-title">
+        <h2 id="features-title">Built for fast space runs</h2>
+        <div class="features">
+          <article class="feature">
+            <div class="feature-mark">01</div>
+            <h3>Quest Progress</h3>
+            <p>Clear enemy objectives and boss goals across episode-based progression.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-mark">02</div>
+            <h3>Ship Upgrades</h3>
+            <p>Spend Nebulite on guns, ammo power, and shields to push deeper into each episode.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-mark">03</div>
+            <h3>Boss Fights</h3>
+            <p>Face mid-boss and final-boss encounters with patterns, minions, and higher rewards.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-mark">04</div>
+            <h3>Optional Rewards</h3>
+            <p>Use rewarded ads for double quest rewards or a limited continue after a run ends.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>© 2026 Cosmius</span>
+      <span>
+        <a href="/support-cosmius/">Support</a>
+        ·
+        <a href="/privacy-cosmius/">Privacy</a>
+        ·
+        <a href="/">Just Us</a>
+      </span>
+    </footer>
+  </div>
+</body>
+</html>
