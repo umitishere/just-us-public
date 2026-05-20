@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Privacy policy for the Cosmius iOS game.">
+  <link rel="canonical" href="https://just-us.xyz/privacy-cosmius/">
+  <title>Cosmius Privacy Policy</title>
+  <style>
+    :root {
+      --background: #090318;
+      --card: rgba(0, 77, 72, 0.9);
+      --card-dark: rgba(2, 24, 34, 0.74);
+      --text: #ecfbff;
+      --muted: #a6c8d3;
+      --accent: #33d6ce;
+      --accent-soft: rgba(51, 214, 206, 0.16);
+      --border: rgba(67, 229, 221, 0.36);
+      --warning: #f4e787;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 16% 18%, rgba(116, 53, 181, 0.42), transparent 27%),
+        radial-gradient(circle at 82% 9%, rgba(36, 192, 199, 0.2), transparent 20%),
+        radial-gradient(circle at 68% 78%, rgba(97, 33, 146, 0.3), transparent 25%),
+        linear-gradient(180deg, #12042b 0%, var(--background) 62%, #04020b 100%);
+      padding: 42px 18px;
+    }
+
+    .wrap {
+      width: min(100%, 820px);
+      margin: 0 auto;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 36px;
+      background: linear-gradient(180deg, rgba(0, 98, 92, 0.88), var(--card));
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.36);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      right: -90px;
+      top: -110px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(141, 91, 218, 0.48), transparent 68%);
+      pointer-events: none;
+    }
+
+    .back {
+      display: inline-flex;
+      margin-bottom: 22px;
+      color: var(--accent);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--warning);
+      background: var(--card-dark);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .pill::before {
+      content: "";
+      width: 13px;
+      height: 13px;
+      border-radius: 3px;
+      background: linear-gradient(135deg, #8e54ff, #38f0df);
+      transform: rotate(45deg);
+      box-shadow: 0 0 18px rgba(142, 84, 255, 0.75);
+    }
+
+    h1 {
+      margin: 18px 0 8px;
+      font-size: clamp(36px, 7vw, 68px);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 30px 0 10px;
+      font-size: 20px;
+      letter-spacing: 0;
+    }
+
+    p, li {
+      color: var(--muted);
+      line-height: 1.62;
+    }
+
+    a { color: var(--accent); font-weight: 800; }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .panel {
+      margin-top: 18px;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      background: var(--card-dark);
+    }
+
+    .muted { color: var(--muted); }
+
+    footer {
+      margin-top: 26px;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 560px) {
+      body { padding: 22px 12px; }
+      .card { padding: 24px; border-radius: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card" aria-labelledby="privacy-title">
+      <a class="back" href="/">just-us.xyz</a>
+      <br>
+      <span class="pill">Cosmius</span>
+      <h1 id="privacy-title">Privacy Policy</h1>
+      <p class="muted">This privacy policy applies to the Cosmius iOS game.</p>
+
+      <div class="panel">
+        <h2>Overview</h2>
+        <p>
+          Cosmius is an arcade space shooter. The app does not require account sign-up and does not ask you to
+          submit personal profile information. Game progress is stored locally on your device.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h2>Data We Collect</h2>
+        <p>Cosmius uses Google AdMob for advertising, including optional rewarded ads. Through AdMob and related advertising partners, the following data may be collected or processed:</p>
+        <ul>
+          <li>Device identifiers, such as advertising identifiers, when permitted by your device settings.</li>
+          <li>Ad interaction data, app usage data, diagnostics, and crash-related information.</li>
+          <li>Approximate location inferred from your IP address, used for ad delivery, fraud prevention, analytics, and service reliability.</li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <h2>Local App Data</h2>
+        <p>
+          The app may store local gameplay data on your device, including selected language, selected episode,
+          Nebulite balance, upgrade levels, quest progress, best run, rewarded ad cooldowns, daily rewarded ad counts,
+          and settings preferences. This data is used to run the game and keep your progress between sessions.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h2>Rewarded Ads</h2>
+        <p>
+          Rewarded ads are optional. If you choose to watch a rewarded ad, Cosmius may grant in-game rewards such as
+          doubled quest rewards or one continue after a run ends. Reward availability may be limited by cooldowns and daily caps.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h2>Third-Party Services</h2>
+        <p>
+          Cosmius uses Google AdMob for advertising. You can review Google's privacy policy here:
+          <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h2>Retention and Deletion</h2>
+        <p>
+          Local gameplay data remains on your device until you reset progress in the app, delete the app, or your device
+          removes the data. Data processed by Google AdMob is handled according to Google's policies and your device privacy settings.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h2>Children's Privacy</h2>
+        <p>
+          Cosmius is intended for general audiences and is not directed to children under 13. We do not knowingly collect
+          personal information from children.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h2>Contact</h2>
+        <p>
+          For privacy questions or support, contact us at
+          <a href="mailto:umitsancakli98@gmail.com">umitsancakli98@gmail.com</a>.
+          You can also open a public issue here:
+          <a href="https://github.com/umitishere/just-us-public/issues">GitHub Issues</a>.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h2>Turkish Summary</h2>
+        <p>
+          Cosmius, reklam göstermek için Google AdMob kullanır. Bu nedenle cihaz tanımlayıcıları, kullanım verileri,
+          reklam etkileşimleri, tanılama bilgileri ve IP adresinden tahmin edilen yaklaşık konum gibi veriler işlenebilir.
+          Oyun ilerlemesi, Nebulite bakiyesi, yükseltmeler, görevler, dil tercihi ve reklam bekleme bilgileri cihazda yerel olarak saklanabilir.
+        </p>
+      </div>
+
+      <footer>
+        Last updated: May 20, 2026 · <a href="/support-cosmius/">Support</a>
+      </footer>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Support, bug reports, feedback, and app information for Cosmius.">
+  <link rel="canonical" href="https://just-us.xyz/support-cosmius/">
+  <title>Cosmius Support</title>
+  <style>
+    :root {
+      --background: #090318;
+      --card: rgba(0, 77, 72, 0.9);
+      --card-dark: rgba(2, 24, 34, 0.74);
+      --text: #ecfbff;
+      --muted: #a6c8d3;
+      --accent: #33d6ce;
+      --accent-soft: rgba(51, 214, 206, 0.16);
+      --border: rgba(67, 229, 221, 0.36);
+      --warning: #f4e787;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 18% 16%, rgba(116, 53, 181, 0.42), transparent 26%),
+        radial-gradient(circle at 80% 8%, rgba(36, 192, 199, 0.18), transparent 20%),
+        radial-gradient(circle at 62% 78%, rgba(97, 33, 146, 0.28), transparent 24%),
+        linear-gradient(180deg, #12042b 0%, var(--background) 62%, #04020b 100%);
+      padding: 42px 18px;
+    }
+
+    .wrap {
+      width: min(100%, 780px);
+      margin: 0 auto;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 36px;
+      background: linear-gradient(180deg, rgba(0, 98, 92, 0.88), var(--card));
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.36);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      right: -80px;
+      top: -90px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(141, 91, 218, 0.48), transparent 68%);
+      pointer-events: none;
+    }
+
+    .back {
+      display: inline-flex;
+      margin-bottom: 22px;
+      color: var(--accent);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--warning);
+      background: var(--card-dark);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .pill::before {
+      content: "";
+      width: 13px;
+      height: 13px;
+      border-radius: 3px;
+      background: linear-gradient(135deg, #8e54ff, #38f0df);
+      transform: rotate(45deg);
+      box-shadow: 0 0 18px rgba(142, 84, 255, 0.75);
+    }
+
+    h1 {
+      margin: 18px 0 8px;
+      font-size: clamp(38px, 7vw, 70px);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 28px 0 10px;
+      font-size: 20px;
+      letter-spacing: 0;
+    }
+
+    p, li {
+      color: var(--muted);
+      line-height: 1.62;
+    }
+
+    a { color: var(--accent); font-weight: 800; }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .panel {
+      margin-top: 18px;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      background: var(--card-dark);
+    }
+
+    .muted { color: var(--muted); }
+
+    footer {
+      margin-top: 26px;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 560px) {
+      body { padding: 22px 12px; }
+      .card { padding: 24px; border-radius: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card" aria-labelledby="support-title">
+      <a class="back" href="/">just-us.xyz</a>
+      <br>
+      <span class="pill">Cosmius</span>
+      <h1 id="support-title">Support</h1>
+      <p class="muted">Help, bug reports, feedback, and feature requests for the Cosmius iOS game.</p>
+
+      <div class="panel">
+        <h2>Contact</h2>
+        <p>
+          For support, bug reports, feedback, or feature requests, contact us at
+          <a href="mailto:umitsancakli98@gmail.com">umitsancakli98@gmail.com</a>.
+        </p>
+        <p>
+          You can also open a public issue here:
+          <a href="https://github.com/umitishere/just-us-public/issues">GitHub Issues</a>.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h2>App Information</h2>
+        <ul>
+          <li>App name: Cosmius</li>
+          <li>Bundle ID: com.umitishere.voidline</li>
+          <li>Platform: iOS</li>
+          <li>Advertising provider: Google AdMob</li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <h2>Gameplay and Progress</h2>
+        <p>
+          Cosmius saves local progress such as Nebulite balance, upgrades, selected language, quest progress,
+          best run, and ad cooldown state on the device. If you reset progress inside the app or delete the app,
+          local progress may be removed.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h2>Rewarded Ads</h2>
+        <p>
+          Rewarded ads are optional. They can be used to double eligible quest rewards or continue once after a run ends.
+          If an ad is on cooldown or unavailable, the app may show a wait timer before that rewarded option can be used again.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h2>Turkish Support</h2>
+        <p>
+          Cosmius ile ilgili destek, hata bildirimi, geri bildirim veya özellik önerileri için
+          <a href="mailto:umitsancakli98@gmail.com">umitsancakli98@gmail.com</a> adresinden iletişime geçebilirsiniz.
+        </p>
+      </div>
+
+      <footer>
+        Last updated: May 20, 2026 · <a href="/privacy-cosmius/">Privacy Policy</a>
+      </footer>
+    </section>
+  </main>
+</body>
+</html>
